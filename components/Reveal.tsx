@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 type Props = {
   children: React.ReactNode;
@@ -8,41 +8,53 @@ type Props = {
   delay?: number;
 };
 
+/**
+ * Scroll-reveal wrapper, built as progressive enhancement.
+ *
+ * The CSS default is VISIBLE (see .reveal in globals.css). JS adds the
+ * `reveal-armed` class only after mount, which is what hides the element and
+ * primes the animation; the observer then adds `reveal-in` to play it.
+ *
+ * Arming from JS rather than rendering hidden is deliberate. If the element
+ * started at opacity 0 in the markup, anything that does not run
+ * IntersectionObserver - JS disabled, a crawler, a full-page screenshot tool
+ * that resizes rather than scrolls - would show a blank page. This way the
+ * worst case is simply no animation.
+ */
 export default function Reveal({ children, className = '', delay = 0 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(false);
 
   useEffect(() => {
-    // Respect reduced motion by showing content immediately.
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setShown(true);
-      return;
-    }
     const el = ref.current;
     if (!el) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    el.classList.add('reveal-armed');
+
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setShown(true);
+          el.classList.add('reveal-in');
           io.disconnect();
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+      { threshold: 0.1, rootMargin: '0px 0px -5% 0px' },
     );
     io.observe(el);
-    return () => io.disconnect();
+
+    // Safety net: if the observer has not fired within 2.5s (an environment
+    // that never scrolls, a resized viewport), show the content anyway.
+    const failsafe = window.setTimeout(() => el.classList.add('reveal-in'), 2500);
+
+    return () => {
+      io.disconnect();
+      window.clearTimeout(failsafe);
+    };
   }, []);
 
   return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: shown ? 1 : 0,
-        transform: shown ? 'none' : 'translateY(18px)',
-        transition: `opacity .7s var(--ease-out) ${delay}ms, transform .7s var(--ease-out) ${delay}ms`,
-      }}
-    >
+    <div ref={ref} className={`reveal ${className}`} style={{ transitionDelay: `${delay}ms` }}>
       {children}
     </div>
   );

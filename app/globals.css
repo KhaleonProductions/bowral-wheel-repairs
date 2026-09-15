@@ -103,10 +103,39 @@ img {
   color: transparent;
 }
 
+/*
+  Scroll reveal. The default state is VISIBLE so content is never hidden by
+  markup alone - see components/Reveal.tsx. JS adds .reveal-armed to hide and
+  prime, then .reveal-in to play the animation.
+*/
+.reveal {
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out);
+}
+
+.reveal-armed {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.reveal-armed.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+
+  /* Never leave content hidden when motion is suppressed. */
+  .reveal,
+  .reveal-armed {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   *,
   *::before,
   *::after {

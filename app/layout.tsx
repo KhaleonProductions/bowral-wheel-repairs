@@ -47,8 +47,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const navLogo = logoNavPath(theme);
 
-  // No aggregateRating: a new business has no reviews and inventing them is
-  // prohibited. Only verifiable facts appear here.
+  // Deliberately carries no review or rating properties: a new business has
+  // none to cite, and inventing them is prohibited. Verifiable facts only.
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'AutoRepair',
