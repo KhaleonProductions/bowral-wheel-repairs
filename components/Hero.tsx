@@ -3,7 +3,7 @@ import Link from 'next/link';
 import VideoFrame from './VideoFrame';
 import { site } from '@/lib/content';
 
-export default function Hero({ logoSrc }: { logoSrc: string }) {
+export default function Hero({ logoSrc, plate }: { logoSrc: string; plate: boolean }) {
   return (
     <section className="texture-carbon bg-mesh relative overflow-hidden bg-[var(--base-deep)] py-[var(--section-pad)]">
       <div className="mx-auto grid max-w-[var(--content-max)] items-center gap-12 px-6 lg:grid-cols-[1.15fr_0.85fr]">
@@ -14,7 +14,11 @@ export default function Hero({ logoSrc }: { logoSrc: string }) {
             width={128}
             height={128}
             priority
-            className="mb-8 rounded-lg shadow-2xl"
+            className={
+              plate
+                ? 'mb-8 rounded-lg shadow-2xl'
+                : 'mb-8 [filter:drop-shadow(0_0_28px_rgba(120,190,255,0.28))]'
+            }
           />
           <h1 className="font-[family-name:var(--font-display)] text-[clamp(2.8rem,8vw,5.5rem)] leading-[1.03] tracking-wide">
             {site.home.heroHeadline.map((line, i) => (

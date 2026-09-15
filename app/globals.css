@@ -29,6 +29,28 @@
   --border-accent: rgba(225, 29, 46, 0.2);
 }
 
+/* ---------- Variant C: Chrome (transparent logo) ---------- */
+/*
+  Built around the cutout logo. The base is a deep blue-black that echoes the
+  original artwork's own field, so the badge reads as machined metal sitting on
+  the page rather than a pasted tile. Red stays as the action colour so the
+  three variants share one CTA language.
+*/
+:root[data-theme='chrome'] {
+  --base: #0d1520;
+  --base-deep: #060b12;
+  --surface: #14202e;
+  --surface-mid: #1c2c3e;
+  --accent: #e63946;
+  --accent-bright: #ff4d5a;
+  --accent-muted: #a62230;
+  /* Ambient glow is steel-blue here, not red: it echoes the logo's own chrome
+     rather than tinting the whole page toward the CTA colour. */
+  --accent-glow: rgba(96, 165, 250, 0.16);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(120, 190, 255, 0.22);
+}
+
 /* ---------- Shared neutrals and scales ---------- */
 /*
   These are declared as plain custom properties on :root, NOT only inside

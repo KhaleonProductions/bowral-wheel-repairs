@@ -3,7 +3,7 @@ import { Bebas_Neue, Barlow_Condensed, DM_Sans } from 'next/font/google';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import { site } from '@/lib/content';
-import { resolveTheme, logoNavPath } from '@/lib/theme';
+import { resolveTheme, logoNavPath, logoPath, faviconPath, logoNeedsPlate } from '@/lib/theme';
 import './globals.css';
 
 const bebas = Bebas_Neue({
@@ -32,20 +32,19 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_AU',
     siteName: site.business.name,
-    images: [{ url: theme === 'red' ? '/assets/logo-red-hero.png' : '/assets/logo-blue-hero.png' }],
+    images: [{ url: logoPath(theme) }],
   },
   twitter: {
     card: 'summary',
     title: site.seo.home.title,
     description: site.seo.home.description,
   },
-  icons: {
-    icon: theme === 'red' ? '/assets/favicon-red.png' : '/assets/favicon-graphite.png',
-  },
+  icons: { icon: faviconPath(theme) },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const navLogo = logoNavPath(theme);
+  const plate = logoNeedsPlate(theme);
 
   // Deliberately carries no review or rating properties: a new business has
   // none to cite, and inventing them is prohibited. Verifiable facts only.
@@ -91,9 +90,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Nav logoSrc={navLogo} />
+        <Nav logoSrc={navLogo} plate={plate} />
         <main>{children}</main>
-        <Footer logoSrc={navLogo} />
+        <Footer logoSrc={navLogo} plate={plate} />
       </body>
     </html>
   );
