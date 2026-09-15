@@ -14,19 +14,21 @@ repair business in Bowral, NSW. Built in Next.js 16 + Tailwind v4 to match the
 shape of `The-Everything-AI-APP/website-starter-nextjs`, specifically so it can
 be adopted by the `website-builder` platform without a rewrite.
 
-Three colour variants are live for the owner to choose from. They are one
-codebase themed by `NEXT_PUBLIC_THEME`, so two of the three Vercel projects get
-deleted once a decision is made.
+**One site, one Vercel project. The design is settled.**
 
-| Variant | URL | Vercel project |
-|---|---|---|
-| Red | https://bowral-wheel-repairs-red.vercel.app | `bowral-wheel-repairs-red` |
-| Graphite | https://bowral-wheel-repairs-graphite.vercel.app | `bowral-wheel-repairs-graphite` |
-| Chrome | https://bowral-wheel-repairs-chrome.vercel.app | `bowral-wheel-repairs-chrome` |
+| | |
+|---|---|
+| **Live URL** | https://bowral-wheel-repairs-red.vercel.app |
+| **Vercel project** | `bowral-wheel-repairs-red` (`prj_xxWmqnqlUm6oazh2TuhbOHjvyaR9`) |
+| **Team** | `scottabbott-9410s-projects` (`team_UtyTk6EJyY4ychVJV7ZhZvCA`) |
+| **Branch** | `main` (the only branch) |
 
-All three currently sit under the `scottabbott-9410s-projects` team
-(`team_UtyTk6EJyY4ychVJV7ZhZvCA`), with deployment protection disabled so the
-owner can review them.
+Deployment protection is disabled so the site is publicly viewable.
+
+Three colour variants were built and deployed for the owner to compare. The red
+one was chosen; the other two Vercel projects have been **deleted** and their
+theme code removed. They remain in git history up to commit `ecbc098` if either
+is ever wanted again. Nothing in the tree now refers to them.
 
 ## Nothing in the BusinessBrain repo has been touched
 
@@ -70,22 +72,22 @@ Next migration number is **204**. Values to confirm with you:
 
 | Column | Proposed value | Note |
 |---|---|---|
-| `tenant_id` | ? | Which tenant owns this? New tenant, or existing? |
+| `tenant_id` | ? | **Open question.** New tenant, or an existing one? |
 | `name` | `Bowral Wheel Repairs` | |
 | `slug` | `bowral-wheel-repairs` | |
 | `github_org` | `The-Everything-AI-APP` | Depends on step 1 |
 | `github_repo` | `bowral-wheel-repairs` | |
 | `repo_root_dir` | *(repo root)* | Not a subdirectory |
-| `vercel_project_name` | winning variant's project | After the owner chooses |
-| `production_branch` | `main` | Currently the only branch |
-| `primary_domain` | `bowralwheelrepairs.com.au` | Not yet purchased |
+| `vercel_project_name` | `bowral-wheel-repairs-red` | The only project; settled |
+| `production_branch` | `main` | |
+| `primary_domain` | `bowralwheelrepairs.com.au` | **Not yet registered** |
 | `asset_path` | `public/assets` | Matches the column default |
-| `lifecycle_status` | `live` | Or `draft` until the domain is attached |
+| `lifecycle_status` | `live` | Or `draft` until the domain is attached — your call |
 | `webhook_secret` | generate | |
 
 ### 3. Vercel env vars
 
-Once registered, set on the winning project:
+Set on `bowral-wheel-repairs-red`:
 
 ```
 BB_TENANT_ID
@@ -93,11 +95,14 @@ BB_WEBHOOK_SECRET
 BB_WEBHOOK_URL
 ```
 
+`NEXT_PUBLIC_THEME` is currently set to `red` on that project. It is now
+vestigial — the theme is hardcoded — and can be removed whenever convenient.
+
 `app/api/contact/route.ts` already implements the contract and **degrades
-gracefully** — with these unset it accepts the submission, logs it and returns
-success. So the form works today and gains CRM integration the moment the vars
-land, with no code change. Verified: 200 in fallback, 422 on invalid input, 400
-on malformed JSON.
+gracefully** — with the `BB_*` vars unset it accepts the submission, logs it and
+returns success. So the form works today and gains CRM integration the moment
+the vars land, with no code change. Verified: 200 in fallback, 422 on invalid
+input, 400 on malformed JSON.
 
 ### 4. Domain
 
@@ -105,10 +110,8 @@ on malformed JSON.
 `setupWebsiteDomain()` path handles it: Vercel domain attach, then a Cloudflare
 zone and CNAME to `cname.vercel-dns.com` with `proxied: false`.
 
-### 5. Clean up
-
-After the owner picks a variant, delete the other two Vercel projects and the
-losing theme token blocks in `app/globals.css`.
+Note the site's `NEXT_PUBLIC_SITE_URL` default (used by `sitemap.xml`,
+`robots.txt` and Open Graph) already assumes that domain — see `.env.example`.
 
 ## What registration buys
 
@@ -133,6 +136,14 @@ reference to the co-located business at the same address, competitor domains,
 fabricated ratings or `aggregateRating`, committed turnaround times, and
 exclusivity claims. 17 tests, all passing.
 
+**Why no pricing anywhere.** At the owner's instruction, every price touchpoint
+reads "contact us for a quote". There are no figures on the site at all.
+
+**Why the site never names the business it shares premises with.** It operates
+from the same address and phone as another business at 8 Mount Rd, but must not
+be publicly linked to it. No name, no logo, no "sister business" copy, no owner
+portraits. This is a deliberate constraint with a test enforcing it.
+
 **The site deliberately makes no exclusivity claim.** Spot On Wheel Repairs
 (Berkeley, ~70 km) already advertises into "Southern Highlands, Bowral,
 Goulburn" by name, and a Mittagong detailer markets CNC diamond cutting while
@@ -146,11 +157,14 @@ dedicated turnaround page is planned once real workshop capacity is known.
 **12 media placeholder slots** are awaiting the business's own photography (6
 gallery before/after pairs, 6 process steps). Each renders a labelled "Photo
 coming soon" panel naming the required shot — never a broken image, never stock.
+Three real assets are in place: the workshop's CNC lathe photo, footage of a
+wheel being machined, and a finished diamond-cut wheel.
 
 ## Reference
 
 - `README.md` — running locally, the Tailwind v4 collision gotcha, media pipeline
 - `docs/superpowers/specs/2026-09-15-bowral-wheel-repairs-design.md` — design spec
+  (describes all three variants as originally scoped; two are now retired)
 - `docs/superpowers/plans/2026-09-15-bowral-wheel-repairs.md` — implementation plan
 - `research/cncwheels-image-urls.txt` — competitor image catalogue, retained as a
   **shot list only**; nothing downloaded or deployed

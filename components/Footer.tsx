@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { site } from '@/lib/content';
 
-export default function Footer({ logoSrc, plate }: { logoSrc: string; plate: boolean }) {
+export default function Footer({ logoSrc }: { logoSrc: string }) {
   return (
     <footer className="border-t border-[var(--border-subtle)] bg-[var(--base-deep)] py-14">
       <div className="mx-auto grid max-w-[var(--content-max)] gap-10 px-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -13,7 +13,7 @@ export default function Footer({ logoSrc, plate }: { logoSrc: string; plate: boo
               alt={`${site.business.name} logo`}
               width={40}
               height={40}
-              className={plate ? 'rounded' : ''}
+              className="rounded"
             />
             <span className="font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-wide">
               {site.business.name}

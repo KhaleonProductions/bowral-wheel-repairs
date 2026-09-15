@@ -7,15 +7,14 @@ import Prose from '@/components/Prose';
 import VideoFrame from '@/components/VideoFrame';
 import CTABanner from '@/components/CTABanner';
 import { site } from '@/lib/content';
-import { resolveTheme, logoPath, logoNeedsPlate } from '@/lib/theme';
+import { logoPath } from '@/lib/theme';
 
 export default function Home() {
-  const theme = resolveTheme();
-  const logo = logoPath(theme);
+  const logo = logoPath();
 
   return (
     <>
-      <Hero logoSrc={logo} plate={logoNeedsPlate(theme)} />
+      <Hero logoSrc={logo} />
 
       {/* Trust strip — capability claims only, no numbers or ratings. */}
       <section className="border-y border-[var(--border-subtle)] bg-[var(--surface)] py-10">

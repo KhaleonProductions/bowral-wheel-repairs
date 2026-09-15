@@ -14,10 +14,11 @@ fi
 [ -x "$FFMPEG" ] || { echo "ffmpeg not found at: $FFMPEG" >&2; exit 1; }
 
 # --- copy supplied originals under stable names ---
-cp "$ROOT/bowral wheel repairs.png"                                    "$OUT/logo-blue.png"
-cp "$ROOT/IMG_20260915_225126.jpg"                                     "$OUT/lathe.jpg"
-cp "$ROOT/Messenger_creation_4AE294B9-E93A-4833-B9ED-CD07980F4182.mp4" "$OUT/video-cutting.mp4"
-cp "$ROOT/Messenger_creation_1EB72D5D-9005-43C8-8DB7-275024EDE505.mp4" "$OUT/video-finished.mp4"
+# The source files are read-only, and cp inherits that, so a re-run cannot
+# overwrite its own previous output. Force it.
+cp -f --no-preserve=mode "$ROOT/IMG_20260915_225126.jpg"                                     "$OUT/lathe.jpg"
+cp -f --no-preserve=mode "$ROOT/Messenger_creation_4AE294B9-E93A-4833-B9ED-CD07980F4182.mp4" "$OUT/video-cutting.mp4"
+cp -f --no-preserve=mode "$ROOT/Messenger_creation_1EB72D5D-9005-43C8-8DB7-275024EDE505.mp4" "$OUT/video-finished.mp4"
 
 # --- red logo variant ---
 python "$ROOT/scripts/make-logo-red.py" "$ROOT/bowral wheel repairs.png" "$OUT/logo-red.png"
@@ -31,19 +32,16 @@ python "$ROOT/scripts/make-logo-red.py" "$ROOT/bowral wheel repairs.png" "$OUT/l
 
 # --- sized logo derivatives ---
 # The 1.8 MB source is far too large to ship for a 44px nav mark.
-for theme in blue red; do
-  "$FFMPEG" -y -loglevel error -i "$OUT/logo-$theme.png" -vf scale=176:-1 "$OUT/logo-$theme-nav.png"
-  "$FFMPEG" -y -loglevel error -i "$OUT/logo-$theme.png" -vf scale=512:-1 "$OUT/logo-$theme-hero.png"
-done
-"$FFMPEG" -y -loglevel error -i "$OUT/logo-red.png"  -vf scale=64:-1 "$OUT/favicon-red.png"
-"$FFMPEG" -y -loglevel error -i "$OUT/logo-blue.png" -vf scale=64:-1 "$OUT/favicon-graphite.png"
+"$FFMPEG" -y -loglevel error -i "$OUT/logo-red.png" -vf scale=176:-1 "$OUT/logo-red-nav.png"
+"$FFMPEG" -y -loglevel error -i "$OUT/logo-red.png" -vf scale=512:-1 "$OUT/logo-red-hero.png"
+"$FFMPEG" -y -loglevel error -i "$OUT/logo-red.png" -vf scale=64:-1  "$OUT/favicon-red.png"
 
 # --- lathe photo: cap width, strip EXIF ---
 "$FFMPEG" -y -loglevel error -i "$OUT/lathe.jpg" -vf "scale='min(1800,iw)':-1" -q:v 4 "$OUT/lathe-web.jpg"
 mv "$OUT/lathe-web.jpg" "$OUT/lathe.jpg"
 
-# --- drop the full-size logo originals: nothing references them ---
-rm -f "$OUT/logo-blue.png" "$OUT/logo-red.png"
+# --- drop the full-size original: nothing references it ---
+rm -f "$OUT/logo-red.png"
 
 echo "--- assets ---"
 ls -la "$OUT"

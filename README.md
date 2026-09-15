@@ -2,37 +2,32 @@
 
 Marketing website for a CNC alloy wheel repair business in Bowral, NSW.
 
-Three colour variants are deployed from this one repository so the owner can
-choose between them. They share every component and every word of copy — only
-design tokens and the logo asset differ.
+**Live:** https://bowral-wheel-repairs-red.vercel.app
 
-| Variant | Live URL | Character |
-|---|---|---|
-| **Red** | https://bowral-wheel-repairs-red.vercel.app | Oxblood base, crimson accents, logo recoloured red |
-| **Graphite** | https://bowral-wheel-repairs-graphite.vercel.app | Neutral carbon base, red as a signal colour, logo unaltered |
-| **Chrome** | https://bowral-wheel-repairs-chrome.vercel.app | Blue-black base, transparent cutout logo, red for CTAs only |
+Oxblood base, crimson accents, with the logo recoloured from its supplied blue
+to red/chrome.
+
+Three colour variants were originally built for the owner to compare. The red
+one was chosen; the other two were retired and their Vercel projects deleted.
+They remain in git history up to commit `ecbc098`.
 
 ## Running locally
 
 ```bash
 npm install
-npm run dev                              # defaults to the red variant
-NEXT_PUBLIC_THEME=graphite npm run dev   # or graphite
-NEXT_PUBLIC_THEME=chrome npm run dev     # or chrome
+npm run dev
 ```
 
-`NEXT_PUBLIC_THEME` is inlined at **build** time, not read at runtime — changing
-variant requires a rebuild, which is why each variant is its own Vercel project.
+## Theming
 
-## How the variants work
+Colour lives entirely in CSS custom properties:
 
-One codebase, themed by CSS custom properties:
-
-- `app/globals.css` defines a token block per variant, selected by `data-theme`
-  on `<html>`.
-- `lib/theme.ts` resolves `NEXT_PUBLIC_THEME` to a theme name, logo paths and
-  favicon, and reports whether the logo needs a backing plate.
+- `app/globals.css` defines the brand tokens on `:root`.
+- `lib/theme.ts` supplies the logo and favicon paths.
 - Components reference colour only through `var(--token)`, never a literal.
+
+That indirection is kept on purpose — re-theming later is a token change rather
+than a component rewrite.
 
 ### Tailwind v4 gotcha
 
@@ -57,8 +52,8 @@ the BusinessBrain platform later without touching markup.
 ./scripts/make-media.sh              # regenerate every derived asset
 ```
 
-This copies the supplied originals under stable names, generates the red and
-transparent logo variants, extracts video poster frames, and produces
+This copies the supplied originals under stable names, generates the red logo
+from the supplied blue artwork, extracts video poster frames, and produces
 nav/hero/favicon-sized derivatives. Idempotent.
 
 Two things worth knowing:
@@ -68,9 +63,10 @@ Two things worth knowing:
   `components/VideoFrame.tsx` renders a 9:16 frame with `object-cover` to push
   the bars outside the visible area. Do not switch it to `object-contain`.
 - **The supplied logo has no alpha channel** — it is a solid square with a navy
-  background baked in. `scripts/make-logo-transparent.py` removes that by
-  flood-filling inward from the border, so dark recesses *inside* the shield are
-  preserved rather than punched through.
+  background baked in, so it renders as a rounded tile rather than a floating
+  badge. `scripts/make-logo-red.py` recolours only blue-family pixels above a
+  saturation floor, which is what preserves the chrome bevels, the three alloy
+  wheels and the white wordmark. A global hue rotation would destroy all three.
 
 ### Placeholder slots
 
@@ -146,7 +142,8 @@ port:
    `primary_domain`, `asset_path`, `webhook_secret`, `lifecycle_status`.
    Migration `105_tenant_websites.sql` seeds two sites by hand and is the
    precedent.
-3. Set `BB_TENANT_ID` and `BB_WEBHOOK_SECRET` as Vercel env vars.
+3. Set `BB_TENANT_ID` and `BB_WEBHOOK_SECRET` as Vercel env vars on
+   `bowral-wheel-repairs-red`.
 4. Attach the custom domain: Vercel domain attach, then a Cloudflare zone and
    CNAME as above.
 

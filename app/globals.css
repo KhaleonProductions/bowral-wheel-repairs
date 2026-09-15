@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-/* ---------- Variant A: Red Brand ---------- */
+/* ---------- Brand palette ---------- */
 :root,
 :root[data-theme='red'] {
   --base: #14090a;
@@ -13,42 +13,6 @@
   --accent-glow: rgba(220, 38, 38, 0.25);
   --border-subtle: rgba(255, 255, 255, 0.07);
   --border-accent: rgba(220, 38, 38, 0.22);
-}
-
-/* ---------- Variant B: Graphite + Red Accent ---------- */
-:root[data-theme='graphite'] {
-  --base: #131619;
-  --base-deep: #0b0d0f;
-  --surface: #1c2024;
-  --surface-mid: #262b31;
-  --accent: #e11d2e;
-  --accent-bright: #ff2d3f;
-  --accent-muted: #a91520;
-  --accent-glow: rgba(225, 29, 46, 0.22);
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-accent: rgba(225, 29, 46, 0.2);
-}
-
-/* ---------- Variant C: Chrome (transparent logo) ---------- */
-/*
-  Built around the cutout logo. The base is a deep blue-black that echoes the
-  original artwork's own field, so the badge reads as machined metal sitting on
-  the page rather than a pasted tile. Red stays as the action colour so the
-  three variants share one CTA language.
-*/
-:root[data-theme='chrome'] {
-  --base: #0d1520;
-  --base-deep: #060b12;
-  --surface: #14202e;
-  --surface-mid: #1c2c3e;
-  --accent: #e63946;
-  --accent-bright: #ff4d5a;
-  --accent-muted: #a62230;
-  /* Ambient glow is steel-blue here, not red: it echoes the logo's own chrome
-     rather than tinting the whole page toward the CTA colour. */
-  --accent-glow: rgba(96, 165, 250, 0.16);
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-accent: rgba(120, 190, 255, 0.22);
 }
 
 /* ---------- Shared neutrals and scales ---------- */
@@ -112,13 +76,13 @@ img {
   height: auto;
 }
 
-/* Visible focus for keyboard users across both themes. */
+/* Visible focus for keyboard users. */
 :focus-visible {
   outline: 2px solid var(--accent-bright);
   outline-offset: 3px;
 }
 
-/* Carbon weave + mesh treatments, token-driven so both themes inherit. */
+/* Carbon weave + mesh treatments, driven by the brand tokens above. */
 .texture-carbon {
   background-image:
     linear-gradient(27deg, var(--border-subtle) 5px, transparent 5px),

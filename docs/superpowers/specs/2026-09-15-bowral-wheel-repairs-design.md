@@ -2,9 +2,20 @@
 
 **Date:** 2026-09-15
 **Version:** 2 (supersedes v1 static-HTML spec — see §12 Revision history)
-**Status:** Approved for implementation
-**Deliverable:** Two visually distinct colour variants of a Next.js marketing site,
-deployed to Vercel, structured to migrate into the BusinessBrain platform.
+**Status:** Implemented. **Superseded in part** — see the note below.
+**Deliverable:** A Next.js marketing site deployed to Vercel, structured to
+migrate into the BusinessBrain platform.
+
+> **2026-09-16 — what actually shipped.** This spec scoped two colour variants
+> for comparison; a third (transparent cutout logo on a blue-black base) was
+> added during implementation at the owner's request. The owner chose the
+> **red** variant. The other two Vercel projects were deleted and their theme
+> code removed; they remain in git history up to commit `ecbc098`.
+>
+> Sections below describing the graphite and chrome variants are kept as a
+> record of what was built and decided, **not** as a description of the current
+> site. For current state see `README.md` and
+> `docs/HANDOFF-BUSINESSBRAIN.md`.
 
 ---
 

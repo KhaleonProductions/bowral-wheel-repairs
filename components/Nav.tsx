@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { site } from '@/lib/content';
 
-export default function Nav({ logoSrc, plate }: { logoSrc: string; plate: boolean }) {
+export default function Nav({ logoSrc }: { logoSrc: string }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -24,7 +24,7 @@ export default function Nav({ logoSrc, plate }: { logoSrc: string; plate: boolea
             alt={`${site.business.name} logo`}
             width={44}
             height={44}
-            className={plate ? 'rounded' : ''}
+            className="rounded"
             priority
           />
           <span className="flex flex-col leading-none">
