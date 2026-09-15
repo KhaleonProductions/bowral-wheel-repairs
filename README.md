@@ -37,6 +37,34 @@ silently overrides the `text-base` *font-size* utility, which rendered nav and
 footer text in the page background colour. Surfaces use arbitrary values
 (`bg-[var(--base)]`) instead. See the comment in `app/globals.css`.
 
+## Deploying
+
+```bash
+./scripts/deploy.sh
+```
+
+**Do not run `npx vercel deploy` from this directory.** Vercel blocks any
+deployment whose metadata carries a GitHub commit attributed to an account that
+is not a member of the Vercel team. This repo is owned by `KhaleonProductions`,
+which is not a member of `scottabbott-9410s-projects`, and the Vercel CLI reads
+the local `.git` directory and attaches that commit metadata automatically —
+even after the project's Git integration has been disconnected. Such deploys
+return `BLOCKED` with no build logs.
+
+`scripts/deploy.sh` stages a copy of the tree with no `.git` directory, so no
+commit metadata is attached. Verified: a deploy with an empty `meta` block
+reaches `READY`; identical code carrying commit metadata is `BLOCKED`.
+
+The permanent fixes are to invite the repo's GitHub account to the Vercel team,
+or to move the repo to an account already on it.
+
+**A returned URL does not mean success** — a `BLOCKED` deployment still prints
+one, and the alias keeps serving the previous good build. Confirm `READY`:
+
+```bash
+npx vercel ls bowral-wheel-repairs-red
+```
+
 ## Content
 
 **All copy lives in `content/site.json`.** Nothing is hardcoded in components.
