@@ -1,11 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { site } from '@/lib/content';
 
-export default function Nav({ logoSrc }: { logoSrc: string }) {
+export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
@@ -14,24 +13,12 @@ export default function Nav({ logoSrc }: { logoSrc: string }) {
       aria-label="Main navigation"
     >
       <div className="mx-auto flex max-w-[var(--content-max)] items-center justify-between gap-4 px-6 py-3">
-        <Link
-          href="/"
-          className="flex items-center gap-3"
-          aria-label={`${site.business.name} — Home`}
-        >
-          <Image
-            src={logoSrc}
-            alt={`${site.business.name} logo`}
-            width={44}
-            height={44}
-            className="rounded"
-            priority
-          />
+        <Link href="/" className="flex items-center" aria-label={`${site.business.name} — Home`}>
           <span className="flex flex-col leading-none">
             <span className="font-[family-name:var(--font-heading)] text-base font-semibold uppercase tracking-wide text-[var(--color-ink)]">
               {site.business.name}
             </span>
-            <span className="font-[family-name:var(--font-heading)] text-[0.65rem] uppercase tracking-[0.2em] text-[var(--accent)]">
+            <span className="font-[family-name:var(--font-heading)] text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
               {site.business.region}
             </span>
           </span>
