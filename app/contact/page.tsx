@@ -14,7 +14,7 @@ const MAP_SRC = 'https://www.google.com/maps?q=8+Mount+Rd,+Bowral+NSW+2576&outpu
 export default function ContactPage() {
   return (
     <>
-      <section className="texture-carbon bg-mesh bg-[var(--base-deep)] py-[var(--section-pad)]">
+      <section className="texture-carbon bg-mesh bg-[var(--base-deep)] pt-16 pb-12">
         <div className="mx-auto max-w-[var(--content-max)] px-6">
           <Reveal>
             <SectionHeader
@@ -27,7 +27,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--base)] py-[var(--section-pad)]">
+      <section className="bg-[var(--base)] pt-4 pb-[var(--section-pad)]">
         <div className="mx-auto grid max-w-[var(--content-max)] gap-12 px-6 lg:grid-cols-[1fr_0.8fr]">
           <Reveal>
             <QuoteForm />

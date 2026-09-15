@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function ProcessPage() {
   return (
     <>
-      <section className="texture-carbon bg-mesh bg-[var(--base-deep)] py-[var(--section-pad)]">
+      <section className="texture-carbon bg-mesh bg-[var(--base-deep)] pt-16 pb-12">
         <div className="mx-auto max-w-[var(--content-max)] px-6">
           <Reveal>
             <SectionHeader

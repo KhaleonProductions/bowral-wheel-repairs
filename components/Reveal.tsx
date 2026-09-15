@@ -43,9 +43,10 @@ export default function Reveal({ children, className = '', delay = 0 }: Props) {
     );
     io.observe(el);
 
-    // Safety net: if the observer has not fired within 2.5s (an environment
-    // that never scrolls, a resized viewport), show the content anyway.
-    const failsafe = window.setTimeout(() => el.classList.add('reveal-in'), 2500);
+    // Safety net: if the observer has not fired within 1.2s (an environment
+    // that never scrolls, or a viewport resized to the full document height),
+    // show the content anyway. Short enough that no real visitor waits on it.
+    const failsafe = window.setTimeout(() => el.classList.add('reveal-in'), 1200);
 
     return () => {
       io.disconnect();

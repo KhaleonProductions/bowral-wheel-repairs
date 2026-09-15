@@ -30,21 +30,35 @@
 }
 
 /* ---------- Shared neutrals and scales ---------- */
+/*
+  These are declared as plain custom properties on :root, NOT only inside
+  @theme, so that both `text-ink` (the generated utility) and
+  `text-[var(--color-ink)]` (arbitrary value) resolve to a real colour.
+  Declaring them only in @theme inline left arbitrary-value references
+  unresolvable, which silently rendered nav text in the page background colour.
+*/
 :root {
   --white: #f2f4f6;
   --chrome: #c6ccd3;
   --steel: #98a1ab;
   --steel-dark: #5b6269;
+  --color-ink: #f2f4f6;
+  --color-chrome: #c6ccd3;
+  --color-steel: #98a1ab;
   --section-pad: clamp(4rem, 8vw, 7rem);
   --content-max: 1200px;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/*
+  Only register colours whose utility names cannot collide with a built-in
+  Tailwind scale. `--color-base` is deliberately ABSENT: in Tailwind v4 a theme
+  colour key generates text-*/bg-* utilities, so `--color-base` produced a
+  `text-base` COLOUR utility that silently overrode the font-size `text-base`
+  and painted nav text in the page background colour. Surfaces are applied
+  with arbitrary values like bg-[var(--base)] instead.
+*/
 @theme inline {
-  --color-base: var(--base);
-  --color-base-deep: var(--base-deep);
-  --color-surface: var(--surface);
-  --color-surface-mid: var(--surface-mid);
   --color-accent: var(--accent);
   --color-accent-bright: var(--accent-bright);
   --color-accent-muted: var(--accent-muted);

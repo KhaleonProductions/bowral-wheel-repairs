@@ -10,7 +10,7 @@ for (const [w,h,tag] of [[1440,900,'desktop'],[390,844,'mobile']]) {
   p.on('pageerror', e => errs.push(String(e)));
   for (const [name, route] of routes) {
     await p.goto(`http://localhost:${port}${route}`, { waitUntil:'networkidle' });
-    await p.waitForTimeout(700);
+    await p.waitForTimeout(1700);
     const ov = await p.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
     if (ov) errs.push(`H-OVERFLOW ${route}`);
     await p.screenshot({ path:`${out}/${theme}-${tag}-${name}.png`, fullPage: tag==='desktop' });
