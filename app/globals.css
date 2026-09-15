@@ -1,0 +1,116 @@
+@import 'tailwindcss';
+
+/* ---------- Variant A: Red Brand ---------- */
+:root,
+:root[data-theme='red'] {
+  --base: #14090a;
+  --base-deep: #0a0405;
+  --surface: #241012;
+  --surface-mid: #2e1518;
+  --accent: #dc2626;
+  --accent-bright: #ef4444;
+  --accent-muted: #991b1b;
+  --accent-glow: rgba(220, 38, 38, 0.25);
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-accent: rgba(220, 38, 38, 0.22);
+}
+
+/* ---------- Variant B: Graphite + Red Accent ---------- */
+:root[data-theme='graphite'] {
+  --base: #131619;
+  --base-deep: #0b0d0f;
+  --surface: #1c2024;
+  --surface-mid: #262b31;
+  --accent: #e11d2e;
+  --accent-bright: #ff2d3f;
+  --accent-muted: #a91520;
+  --accent-glow: rgba(225, 29, 46, 0.22);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(225, 29, 46, 0.2);
+}
+
+/* ---------- Shared neutrals and scales ---------- */
+:root {
+  --white: #f2f4f6;
+  --chrome: #c6ccd3;
+  --steel: #98a1ab;
+  --steel-dark: #5b6269;
+  --section-pad: clamp(4rem, 8vw, 7rem);
+  --content-max: 1200px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme inline {
+  --color-base: var(--base);
+  --color-base-deep: var(--base-deep);
+  --color-surface: var(--surface);
+  --color-surface-mid: var(--surface-mid);
+  --color-accent: var(--accent);
+  --color-accent-bright: var(--accent-bright);
+  --color-accent-muted: var(--accent-muted);
+  --color-chrome: var(--chrome);
+  --color-steel: var(--steel);
+  --color-ink: var(--white);
+  --font-display: var(--font-bebas), Impact, sans-serif;
+  --font-heading: var(--font-barlow), 'Arial Narrow', sans-serif;
+  --font-body: var(--font-dmsans), 'Segoe UI', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--base-deep);
+  color: var(--white);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Visible focus for keyboard users across both themes. */
+:focus-visible {
+  outline: 2px solid var(--accent-bright);
+  outline-offset: 3px;
+}
+
+/* Carbon weave + mesh treatments, token-driven so both themes inherit. */
+.texture-carbon {
+  background-image:
+    linear-gradient(27deg, var(--border-subtle) 5px, transparent 5px),
+    linear-gradient(207deg, var(--border-subtle) 5px, transparent 5px);
+  background-size: 12px 12px;
+}
+
+.bg-mesh {
+  background-image:
+    radial-gradient(at 18% 12%, var(--accent-glow) 0px, transparent 55%),
+    radial-gradient(at 82% 78%, var(--accent-glow) 0px, transparent 50%);
+}
+
+.chrome-text {
+  background: linear-gradient(180deg, #fff 0%, var(--chrome) 45%, var(--steel-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

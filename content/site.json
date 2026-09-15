@@ -1,0 +1,421 @@
+{
+  "business": {
+    "name": "Bowral Wheel Repairs",
+    "tagline": "Precision CNC wheel repair in the Southern Highlands.",
+    "region": "Southern Highlands"
+  },
+  "contact": {
+    "phone": "(02) 4872 2221",
+    "phoneHref": "tel:0248722221",
+    "email": "admin@bowralwheelrepairs.com.au",
+    "street": "8 Mount Rd",
+    "locality": "Bowral",
+    "region": "NSW",
+    "postcode": "2576",
+    "hours": "Tue-Fri: 7:30am - 5:00pm",
+    "geo": { "lat": -34.4754714, "lng": 150.4165496 }
+  },
+  "nav": [
+    { "href": "/", "label": "Home" },
+    { "href": "/about", "label": "About" },
+    { "href": "/services", "label": "Services" },
+    { "href": "/process", "label": "Process" },
+    { "href": "/gallery", "label": "Our Work" },
+    { "href": "/contact", "label": "Contact" }
+  ],
+  "quoteCta": {
+    "label": "Get a Quote",
+    "note": "Every job is quoted on inspection. Send us a photo or bring the wheel in and we'll tell you exactly what it needs."
+  },
+  "home": {
+    "heroHeadline": ["Precision", "CNC Wheel Repair"],
+    "heroSub": "Machined, straightened and refinished in-house in Bowral.",
+    "trust": [
+      {
+        "id": "in-house",
+        "title": "In-house CNC machining",
+        "summary": "Our own lathe, on site at Mount Road. Nothing gets sent away."
+      },
+      {
+        "id": "local",
+        "title": "Southern Highlands local",
+        "summary": "Bowral, Mittagong, Moss Vale and everywhere between. No freight, no courier."
+      },
+      {
+        "id": "colour",
+        "title": "OEM colour matching",
+        "summary": "Factory-correct finishes, or something custom if you'd rather."
+      },
+      {
+        "id": "guarantee",
+        "title": "Workmanship guarantee",
+        "summary": "We stand behind what leaves the workshop. If it isn't right, bring it back."
+      }
+    ],
+    "damageIntro": {
+      "heading": "Kerbed it? Cracked it? Hit a pothole?",
+      "paragraphs": [
+        "Most wheel damage falls into one of these. If yours looks like any of them, there's a good chance we can put it right."
+      ]
+    },
+    "damage": [
+      {
+        "id": "kerb-rash",
+        "title": "Kerb & Gutter Rash",
+        "summary": "The scraped, torn alloy along the rim edge that shows up every time you park."
+      },
+      {
+        "id": "buckles",
+        "title": "Buckles & Bends",
+        "summary": "A rim knocked out of round by a pothole. You'll feel it as a wobble through the wheel."
+      },
+      {
+        "id": "cracks",
+        "title": "Cracks",
+        "summary": "A split in the rim, usually after a solid impact. Often repairable, depending where it sits."
+      },
+      {
+        "id": "corrosion",
+        "title": "Corrosion & Lacquer Peel",
+        "summary": "That milky, flaking finish creeping out from a chip in the clear coat."
+      },
+      {
+        "id": "diamond-cut-damage",
+        "title": "Diamond-Cut Face Damage",
+        "summary": "Machined-face wheels that have lost their shine or copped a kerb across the front."
+      },
+      {
+        "id": "wrong-colour",
+        "title": "Tired or Wrong Colour",
+        "summary": "Wheels that are structurally fine but just don't suit the car any more."
+      }
+    ],
+    "resultBlock": {
+      "heading": "Off the lathe, onto the car",
+      "paragraphs": [
+        "This is what a diamond-cut finish actually is: fine concentric lines cut into bare aluminium by the lathe, sealed under fresh lacquer. It catches the light in a way no paint or polish can imitate.",
+        "That's why a machined-face wheel has to go back on a lathe to be put right. There's no hand-finishing your way to it — the geometry has to be *cut*, and cut to the profile that wheel left the factory with."
+      ]
+    }
+  },
+  "newcomer": {
+    "heading": "New to the Highlands. Not new to the work.",
+    "paragraphs": [
+      "Until now, getting a wheel properly machined around here meant packing it off to Wollongong or Sydney, paying for the freight, and waiting on a courier both ways.",
+      "So we brought the machine to Bowral instead.",
+      "Our CNC lathe is installed and cutting at Mount Road — not a partner's machine somewhere down the highway, not a job we quietly send out and mark up. When we say the work is done in-house, we mean in *this* house.",
+      "We're the new name in Southern Highlands wheel repair, and we're setting out to be the one people recommend. The plan for getting there isn't complicated: do proper work, give straight answers, and hand back wheels people are pleased to put back on the car.",
+      "Bring us something kerbed, buckled or cracked and let us show you."
+    ]
+  },
+  "straightAnswers": {
+    "heading": "We'll tell you if it's not worth it",
+    "paragraphs": [
+      "Here's something you won't read on many wheel repair websites: not every wheel can be saved. Funny how everyone else's site implies anything can be fixed, isn't it?",
+      "Cracks in the spokes are a hard no — and not because we can't be bothered. The spokes carry every bit of your cornering and braking load, so welding them isn't just risky, it's not legal. Rim lip cracks are usually a different story and often perfectly repairable.",
+      "Diamond-cut wheels are similar. Every re-cut takes a whisker of metal off the face, so there's a limit to how many times one wheel can go under the tool. We'll tell you where yours is at.",
+      "You'll get a straight answer either way. Sometimes that answer is \"replace it\" — and we'd rather say so than take your money and hand back something we're not proud of."
+    ]
+  },
+  "workshop": {
+    "heading": "The machine that does the work",
+    "paragraphs": [
+      "This is our CNC wheel lathe, installed at Mount Road in Bowral. A wheel is chucked on the spindle, measured, and the cutting tool follows the exact face profile that wheel was built with — restoring the finish rather than approximating it.",
+      "It is the reason we can say the machining happens here. A lot of places advertise diamond cutting and quietly courier your wheels to someone else's lathe, then add the freight and the waiting to your bill. Ours is twenty metres from the front counter.",
+      "Around it sits the rest of what a wheel needs: a straightening press, TIG welding gear, a blasting and prep bay, and a spray booth with oven curing."
+    ]
+  },
+  "whyUs": [
+    {
+      "id": "not-sent-away",
+      "title": "Your wheels stay in Bowral",
+      "summary": "The machining happens on our lathe, in our workshop. No freight, no courier both ways, no wondering where your wheels have got to."
+    },
+    {
+      "id": "direct",
+      "title": "You deal with the people doing the work",
+      "summary": "Not a call centre and not a middleman marking up someone else's machining. The person who quotes your wheel is the person who cuts it."
+    },
+    {
+      "id": "honest",
+      "title": "An honest assessment",
+      "summary": "Including when the answer is no. If a wheel isn't safe to repair or isn't worth the money, we'll say so before you commit."
+    },
+    {
+      "id": "finish",
+      "title": "A finish that holds up",
+      "summary": "Proper prep, OEM colour matching where you want factory-correct, and oven-cured clear coat that copes with Highlands weather and winter road grit."
+    }
+  ],
+  "services": [
+    {
+      "id": "cnc-diamond-cut",
+      "title": "CNC Diamond-Cut Refinishing",
+      "summary": "Machined-face wheels re-cut on the lathe to restore the original finish.",
+      "what": "A diamond-cut finish is made by a lathe skimming bare aluminium to leave fine concentric cut lines under a coat of lacquer. It is a machined surface, not a paint effect.",
+      "fixes": "Kerb damage across the machined face, lacquer peel, and the milky corrosion that creeps under a chipped clear coat.",
+      "how": "The wheel is mounted on our CNC lathe and the face is cut back to the model's original profile, then re-lacquered. Hand polishing cannot reproduce that geometry — it has to be cut. Every re-cut removes a little metal, so there is a limit to how many times one wheel can go under the tool, and we'll tell you where yours sits."
+    },
+    {
+      "id": "straightening",
+      "title": "Wheel Straightening",
+      "summary": "Buckles and flat spots corrected and trued.",
+      "what": "Hydraulic correction of a rim bent out of round, usually after a pothole or a hard kerb strike.",
+      "fixes": "The vibration and wobble that appears through the steering or the seat once a rim is no longer running true.",
+      "how": "The wheel is measured for runout, heated and pressed back true, then re-checked on the machine to confirm it runs straight before anything else happens to it."
+    },
+    {
+      "id": "crack-weld",
+      "title": "Crack & Weld Repair",
+      "summary": "Repairable cracks TIG welded, dressed and refinished.",
+      "what": "Aluminium TIG welding of a cracked rim, followed by dressing the weld back to the original profile.",
+      "fixes": "Cracks on the back or the middle of the rim lip, which is where impact damage usually shows up.",
+      "how": "The crack is ground out, welded, dressed and refinished. Cracks through a spoke are the exception: the spokes carry your cornering and braking loads, and repairing them is not legal. We'll tell you straight if that's what you've got."
+    },
+    {
+      "id": "refurbishment",
+      "title": "Full Refurbishment",
+      "summary": "Stripped back and rebuilt to a factory-quality finish.",
+      "what": "A complete strip, repair and refinish — one wheel, or a full set brought back to matching condition.",
+      "fixes": "Tired, oxidised, peeling or mismatched wheels that let an otherwise tidy car down.",
+      "how": "Tyres off, weights and TPMS sensors removed and set aside, old finish stripped, damage repaired, then primed, coloured, cleared and oven cured."
+    },
+    {
+      "id": "colour-change",
+      "title": "Colour Changes & Custom Finishes",
+      "summary": "Gloss, satin, matte, two-tone or machined face with an accent.",
+      "what": "A full change of finish rather than a restoration of the original colour.",
+      "fixes": "Wheels that are structurally sound but wrong for the car — or just due for something different.",
+      "how": "We match OEM colours where you want factory-correct, or work to whatever finish you're after. Two-tone and machined-face-with-accent combinations are cut on the lathe, which is what gives them a clean edge."
+    },
+    {
+      "id": "gutter-rash",
+      "title": "Gutter Rash & Kerb Damage",
+      "summary": "The scuffed lip and face made good again.",
+      "what": "Cosmetic repair of the outer lip and face after contact with a kerb or a gutter.",
+      "fixes": "The scraped, torn alloy along the rim edge that catches your eye every time you walk up to the car.",
+      "how": "Damage is filled or machined back depending on how deep it runs, then refinished to match the rest of the wheel."
+    },
+    {
+      "id": "tpms",
+      "title": "TPMS Handling",
+      "summary": "Tyre pressure sensors removed, protected and refitted properly.",
+      "what": "Proper care of the tyre pressure monitoring sensors fitted inside most modern wheels.",
+      "fixes": "The dashboard warning light that turns up after a careless wheel refit — and the cost of replacing a sensor that was blasted or painted over.",
+      "how": "Sensors come out before stripping, stay clear of blasting and paint, then go back in or get transferred and reset when the wheel returns to the car."
+    }
+  ],
+  "process": [
+    {
+      "id": "assess",
+      "step": 1,
+      "title": "Assessment",
+      "summary": "We look at the wheel properly before quoting.",
+      "detail": "The wheel is inspected for runout, cracks and previous repairs. If it isn't worth repairing, or isn't safe to repair, we say so at this point rather than after you've paid.",
+      "media": {
+        "src": null,
+        "alt": "A wheel being inspected on the bench",
+        "shotNeeded": "Wheel being measured or inspected on the bench"
+      }
+    },
+    {
+      "id": "strip",
+      "step": 2,
+      "title": "Tyre Removal & Strip",
+      "summary": "Back to bare metal.",
+      "detail": "Tyre off, balance weights and TPMS sensor removed and set aside, then the old finish stripped so we can see exactly what we're working with instead of guessing through the paint.",
+      "media": {
+        "src": null,
+        "alt": "A stripped bare alloy wheel",
+        "shotNeeded": "Bare stripped wheel before repair"
+      }
+    },
+    {
+      "id": "straighten",
+      "step": 3,
+      "title": "Straightening",
+      "summary": "Bends and buckles pressed back true.",
+      "detail": "Buckles and flat spots are corrected hydraulically, then the wheel is re-measured to confirm it runs true. There's no point machining a face on a rim that's still out of round.",
+      "media": {
+        "src": null,
+        "alt": "A wheel being straightened on the press",
+        "shotNeeded": "Wheel on the straightening machine"
+      }
+    },
+    {
+      "id": "weld",
+      "step": 4,
+      "title": "Welding",
+      "summary": "Repairable cracks welded and dressed.",
+      "detail": "Cracks on the back or middle of the rim are ground out, TIG welded and dressed back to profile. Spoke cracks are not repaired — that's a structural limit, not a preference.",
+      "media": {
+        "src": null,
+        "alt": "TIG welding a cracked rim",
+        "shotNeeded": "TIG welding in progress on a rim"
+      }
+    },
+    {
+      "id": "machine",
+      "step": 5,
+      "title": "CNC Machining",
+      "summary": "The face cut back to its original profile.",
+      "detail": "The wheel is chucked on the lathe and the face is machined to the model's original profile, restoring the fine concentric cut lines that make a diamond-cut finish what it is. This is the step most shops around here have to send away.",
+      "media": {
+        "src": "/assets/video-cutting.mp4",
+        "alt": "A wheel being machined on our CNC lathe",
+        "shotNeeded": "Supplied: CNC lathe cutting footage"
+      }
+    },
+    {
+      "id": "finish",
+      "step": 6,
+      "title": "Finishing",
+      "summary": "Primed, coloured, cleared and cured.",
+      "detail": "Primer, colour and clear coat go on in the booth and are oven cured, which is what gives the finish the hardness to cope with Highlands weather and winter road grit.",
+      "media": {
+        "src": null,
+        "alt": "A wheel in the spray booth",
+        "shotNeeded": "Wheel in the booth being sprayed"
+      }
+    },
+    {
+      "id": "refit",
+      "step": 7,
+      "title": "Balance & Refit",
+      "summary": "Back on the car, balanced and torqued.",
+      "detail": "Tyre refitted, the wheel balanced, TPMS sensor refitted and reset, and every nut torqued to the manufacturer's specification. You drive away with it done properly, not nearly done.",
+      "media": {
+        "src": null,
+        "alt": "A finished wheel being refitted to a car",
+        "shotNeeded": "Finished wheel being refitted to the car"
+      }
+    }
+  ],
+  "gallery": [
+    {
+      "id": "dc-1",
+      "category": "diamond-cut",
+      "caption": "Diamond-cut face restored on the lathe.",
+      "media": {
+        "src": null,
+        "alt": "Before and after of a diamond-cut wheel repair",
+        "shotNeeded": "Before/after pair — kerbed diamond-cut face"
+      }
+    },
+    {
+      "id": "dc-2",
+      "category": "diamond-cut",
+      "caption": "Machined face with gloss black pockets.",
+      "media": {
+        "src": null,
+        "alt": "A two-tone machined-face wheel",
+        "shotNeeded": "Finished two-tone machined face, full wheel"
+      }
+    },
+    {
+      "id": "st-1",
+      "category": "straightening",
+      "caption": "Pothole buckle pressed back true.",
+      "media": {
+        "src": null,
+        "alt": "Before and after of a buckled rim",
+        "shotNeeded": "Before/after pair — buckled rim straightened"
+      }
+    },
+    {
+      "id": "st-2",
+      "category": "straightening",
+      "caption": "Runout checked before the wheel goes anywhere near paint.",
+      "media": {
+        "src": null,
+        "alt": "A wheel being checked for runout",
+        "shotNeeded": "Dial gauge on a wheel checking runout"
+      }
+    },
+    {
+      "id": "rf-1",
+      "category": "refurbishment",
+      "caption": "Full set stripped, repaired and refinished to match.",
+      "media": {
+        "src": null,
+        "alt": "A refurbished set of four wheels",
+        "shotNeeded": "Set of four finished wheels together"
+      }
+    },
+    {
+      "id": "rf-2",
+      "category": "refurbishment",
+      "caption": "Lacquer peel taken back to bare metal and rebuilt.",
+      "media": {
+        "src": null,
+        "alt": "Before and after of a corroded wheel",
+        "shotNeeded": "Before/after pair — lacquer peel and corrosion"
+      }
+    },
+    {
+      "id": "cc-1",
+      "category": "custom-colour",
+      "caption": "Satin graphite, colour change from factory silver.",
+      "media": {
+        "src": null,
+        "alt": "A wheel finished in satin graphite",
+        "shotNeeded": "Finished custom colour wheel, on the car"
+      }
+    },
+    {
+      "id": "cc-2",
+      "category": "custom-colour",
+      "caption": "Gloss black with a machined lip.",
+      "media": {
+        "src": null,
+        "alt": "A gloss black wheel with a machined lip",
+        "shotNeeded": "Gloss black wheel with machined lip detail"
+      }
+    }
+  ],
+  "about": {
+    "story": {
+      "heading": "Wheel repair, done in the Highlands",
+      "paragraphs": [
+        "Bowral Wheel Repairs exists for a simple reason: there was no CNC wheel lathe in the Southern Highlands, and every machined wheel in the district was being trucked somewhere else to get fixed.",
+        "We do one thing and we do it here — alloy wheels, straightened, welded, machined and refinished at Mount Road in Bowral.",
+        "That focus is deliberate. A wheel is a structural part holding a tonne and a half of car onto the road, and it deserves more than being a sideline to something else."
+      ]
+    }
+  },
+  "contactPage": {
+    "intro": {
+      "heading": "Tell us what you've done to it",
+      "paragraphs": [
+        "Send through a photo and a few details and we'll tell you what your wheels need. Or just call — we'd rather talk it through than trade emails."
+      ]
+    },
+    "formNote": "A clear photo of the damage helps us quote accurately. You can bring the wheel in, or the whole car if it's easier."
+  },
+  "seo": {
+    "home": {
+      "title": "Bowral Wheel Repairs | CNC Alloy Wheel Repair, Southern Highlands",
+      "description": "CNC alloy wheel repair in Bowral NSW. Diamond-cut refinishing, wheel straightening, crack repair and full refurbishment, machined in-house. Contact us for a quote."
+    },
+    "about": {
+      "title": "About Our Bowral Workshop",
+      "description": "A CNC wheel lathe installed in Bowral, so Southern Highlands wheels no longer need freighting to Sydney or Wollongong. See the workshop and how we work."
+    },
+    "services": {
+      "title": "Alloy Wheel Repair Services",
+      "description": "Diamond-cut CNC refinishing, wheel straightening, crack and weld repair, full refurbishment, colour changes, gutter rash and TPMS handling. Bowral, Mittagong, Moss Vale."
+    },
+    "process": {
+      "title": "Our Wheel Repair Process",
+      "description": "Seven stages from assessment to refit: strip, straighten, weld, CNC machine, finish and balance. See how an alloy wheel is properly repaired."
+    },
+    "gallery": {
+      "title": "Our Work",
+      "description": "Diamond-cut refinishing, straightening, refurbishment and custom colour work from our Bowral wheel repair workshop."
+    },
+    "contact": {
+      "title": "Contact & Quotes",
+      "description": "Bowral Wheel Repairs, 8 Mount Rd, Bowral NSW 2576. Call (02) 4872 2221 or send a photo of your wheels for a quote."
+    }
+  }
+}
