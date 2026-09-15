@@ -39,27 +39,36 @@ footer text in the page background colour. Surfaces use arbitrary values
 
 ## Deploying
 
+Push to `main` — Vercel builds and deploys automatically.
+
 ```bash
-./scripts/deploy.sh
+git push origin main
 ```
 
-**Do not run `npx vercel deploy` from this directory.** Vercel blocks any
-deployment whose metadata carries a GitHub commit attributed to an account that
-is not a member of the Vercel team. This repo is owned by `KhaleonProductions`,
-which is not a member of `scottabbott-9410s-projects`, and the Vercel CLI reads
-the local `.git` directory and attaches that commit metadata automatically —
-even after the project's Git integration has been disconnected. Such deploys
-return `BLOCKED` with no build logs.
+`scripts/deploy.sh` remains for a manual deploy that bypasses the Git
+integration entirely.
 
-`scripts/deploy.sh` stages a copy of the tree with no `.git` directory, so no
-commit metadata is attached. Verified: a deploy with an empty `meta` block
-reaches `READY`; identical code carrying commit metadata is `BLOCKED`.
+### Commits must carry a team member's email
 
-The permanent fixes are to invite the repo's GitHub account to the Vercel team,
-or to move the repo to an account already on it.
+Vercel refuses to build a deployment whose commit author email does not belong
+to a member of the Vercel team, returning `BLOCKED` with no build logs while
+the alias silently keeps serving the previous build.
+
+Commit as `scott.abbott@khaleoncreations.com.au`. Do **not** use
+`scottabbott1985@gmail.com` — that mailbox is no longer accessible, so an
+invite to it can never be accepted, and every commit stamped with it is
+rejected at build time.
+
+```bash
+git config user.email    # must be scott.abbott@khaleoncreations.com.au
+```
+
+Note it is the **commit author email** that matters, not the GitHub org: a
+deploy attributed to `KhaleonProductions` builds fine so long as the author
+email is on the team.
 
 **A returned URL does not mean success** — a `BLOCKED` deployment still prints
-one, and the alias keeps serving the previous good build. Confirm `READY`:
+one. Confirm the state:
 
 ```bash
 npx vercel ls bowral-wheel-repairs-red
